@@ -389,7 +389,7 @@ inline void Worker<Task, Queue>::threadFunc(const size_t id, std::shared_ptr<Thr
             }
         }
     }
-    catch (WorkerStoppedException)
+    catch (WorkerStoppedException const&)
     {
         // Allow thread function to complete.
     }

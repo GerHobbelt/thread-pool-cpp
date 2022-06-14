@@ -8,7 +8,7 @@ TEST(ThreadPoolOptions, ctor)
 {
     tp::ThreadPoolOptions options;
 
-    ASSERT_EQ(1024, options.queueSize());
+    ASSERT_EQ(1024u, options.queueSize());
     ASSERT_EQ(std::max<size_t>(1u, std::thread::hardware_concurrency()),
               options.threadCount());
 }
@@ -18,10 +18,10 @@ TEST(ThreadPoolOptions, modification)
     tp::ThreadPoolOptions options;
 
     options.setThreadCount(5);
-    ASSERT_EQ(5, options.threadCount());
+    ASSERT_EQ(5u, options.threadCount());
 
     options.setQueueSize(32);
-    ASSERT_EQ(32, options.queueSize());
+    ASSERT_EQ(32u, options.queueSize());
 }
 
 int main(int argc, char **argv) {

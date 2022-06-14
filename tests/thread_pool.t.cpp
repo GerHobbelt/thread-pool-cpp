@@ -10,7 +10,7 @@
 namespace TestLinkage {
 size_t getWorkerIdForCurrentThread()
 {
-    return *tp::detail::thread_id();
+    return tp::detail::thread_id();
 }
 
 size_t getWorkerIdForCurrentThread2()

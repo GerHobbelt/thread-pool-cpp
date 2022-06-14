@@ -4,6 +4,7 @@
 #include <thread>
 #include <functional>
 #include <chrono>
+#include <cmath>
 
 namespace tp
 {
@@ -203,7 +204,7 @@ inline size_t ThreadPoolOptions::BusyWaitOptions::defaultNumIterations()
 
 inline ThreadPoolOptions::BusyWaitOptions::IterationFunction ThreadPoolOptions::BusyWaitOptions::defaultIterationFunction()
 {
-    return [](size_t i) { return std::chrono::microseconds(static_cast<size_t>(pow(2, i))*1000); };
+    return [](size_t i) { return std::chrono::microseconds(static_cast<size_t>(std::pow(2, i))*1000); };
 }
 
 inline ThreadPoolOptions::ThreadPoolOptions(size_t thread_count, size_t queue_size, size_t failed_wakeup_retry_cap, BusyWaitOptions busy_wait_options, std::chrono::microseconds rouse_period)
