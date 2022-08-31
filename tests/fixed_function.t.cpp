@@ -187,7 +187,12 @@ TEST(FixedFunction, lambda)
     ASSERT_EQ(s1, f1());
 }
 
-int main(int argc, char **argv) {
+
+#if defined(BUILD_MONOLITHIC)
+#define main      threadpool_cpp_fixed_function_test_main
+#endif
+
+int main(int argc, const char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
